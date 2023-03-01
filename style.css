@@ -1,7 +1,27 @@
-/*  general styling*/
-html {
+/******************************  general stylings*********************************/
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  _border: 3px solid rgb(165, 58, 58);
+}
+
+html {
   font-family: tahoma;
+  font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  html {
+    font-size: 18px;
+  }
 }
 
 h1,
@@ -12,38 +32,136 @@ h5,
 h6 {
   font-family: verdana;
 }
+
 body {
-  margin: 0px;
+  margin: 0;
 }
+
 *::selection {
   background-color: rgb(192, 192, 300);
 }
-/*  specific styling*/
+/******************************  specific stylings *********************************/
 
 .header {
-  padding: 12px 4px;
+  padding: 1rem 0.5rem;
+  padding-top: 1.5rem;
   text-align: center;
   background-color: rgb(192, 192, 192);
+  position: relative;
+}
+
+.heading-group {
+  font-size: 4rem;
+}
+.main-heading {
+  font-size: 1em;
+}
+
+.profession {
+  font-size: 0.25em;
 }
 .profession::after {
   content: "🤖";
 }
-.main {
-  padding: 16px;
-  margin: 0px;
-}
-article + article {
-  margin-top: 30px;
-  border-top: 2px solid gray;
-}
-.nav-link {
-  padding: 4px 8px;
+
+.hire-me {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: rgb(187, 144, 230);
   color: black;
 }
 
-.nav-link:hover {
+@media screen and (min-width: 992px) {
+  .hire-me {
+    position: fixed;
+  }
+}
+
+@media print {
+  .hire-me {
+    display: none;
+  }
+  .nav {
+    display: none;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.nav-link {
+  padding: 0.1rem 0.2rem;
   color: blue;
 }
+
+.nav-link:hover {
+  color: black;
+}
+
 .nav-link:active {
-  background-color: blueviolet;
+  background-color: rgb(228, 220, 231);
+}
+
+.main {
+  max-width: 100ch;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.main > article + article {
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .main > article + article {
+    margin-top: 3rem;
+  }
+}
+.main > article {
+  border-top: 0.2rem solid gray;
+  padding: 0 1rem;
+}
+
+.main > article:first-child {
+  border-top: none;
+}
+
+.article-heading {
+  position: relative;
+  left: -1rem;
+}
+.ex-heading {
+  display: inline-block;
+}
+
+.ex-subheading {
+  display: inline-block;
+}
+
+.exp-container {
+  display: flex;
+  flex-direction: column;
+}
+.two-headings {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+@media screen and (min-width: 768px) {
+  .two-headings {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
